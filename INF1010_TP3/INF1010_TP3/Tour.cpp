@@ -29,9 +29,9 @@ bool Tour::estMouvementValide(int toX, int toY) {
 	Piece piece;
 	if (!piece.estMouvementValide(toX, toY))
 		return false;
-	else if (toX == piece.obtenirPositionX && toY != piece.obtenirPositionY)
+	else if (toX == piece.obtenirPositionX() && toY != piece.obtenirPositionY())
 		return true;
-	else if (toY == piece.obtenirPositionY && toX != piece.obtenirPositionX)
+	else if (toY == piece.obtenirPositionY() && toX != piece.obtenirPositionX())
 		return true;
 
 	std::cout << "Deplacement non autorise" << endl;
@@ -41,10 +41,10 @@ bool Tour::estMouvementValide(int toX, int toY) {
 void Tour::deplacer(int toX, int toY) {
 	Piece piece;
 	if (estMouvementValide(toX, toY)) {
-		piece.modifierPositionX = toX;
-		piece.obtenirPositionY = toY;
-		std::cout << "Deplacement de la tour de la position " << piece.obtenirPositionX
-			<< ", " << piece.obtenirPositionY << " a la position " << toX << ", " <<
+		piece.modifierPositionX(toX);
+		piece.modifierPositionY(toY);
+		std::cout << "Deplacement de la tour de la position " << piece.obtenirPositionX()
+			<< ", " << piece.obtenirPositionY() << " a la position " << toX << ", " <<
 			toY << endl;
 	}
 	else

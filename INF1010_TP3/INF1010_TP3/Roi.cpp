@@ -29,9 +29,9 @@ bool Roi::estMouvementValide(int toX, int toY) {
 	Piece piece;
 	if (!piece.estMouvementValide(toX, toY))
 		return false;
-	else if (toX == piece.obtenirPositionX && (toY - 1 == piece.obtenirPositionY || toY + 1 = piece.obtenirPositionY))
+	else if (toX == piece.obtenirPositionX() && (toY - 1 == piece.obtenirPositionY() || toY + 1 == piece.obtenirPositionY()))
 		return true;
-	else if (toX == piece.obtenirPositionY && (toY - 1 == piece.obtenirPositionX|| toY + 1 = piece.obtenirPositionX))
+	else if (toX == piece.obtenirPositionY() && (toX - 1 == piece.obtenirPositionX() || toX + 1 == piece.obtenirPositionX()))
 		return true;
 
 	std::cout << "Deplacement non autorise" << endl;
@@ -41,10 +41,10 @@ bool Roi::estMouvementValide(int toX, int toY) {
 void Roi::deplacer(int toX, int toY) {
 	Piece piece;
 	if (estMouvementValide(toX, toY)) {
-		piece.modifierPositionX = toX;
-		piece.obtenirPositionY = toY;
-		std::cout << "Deplacement du roi de la position " << piece.obtenirPositionX
-			<< ", " << piece.obtenirPositionY << " a la position " << toX << ", " <<
+		piece.modifierPositionX(toX);
+		piece.modifierPositionY(toY);
+		std::cout << "Deplacement du roi de la position " << piece.obtenirPositionX()
+			<< ", " << piece.obtenirPositionY() << " a la position " << toX << ", " <<
 			toY << endl;
 	}
 	else
