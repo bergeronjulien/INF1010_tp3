@@ -10,28 +10,25 @@
 #include <iostream>
 
 Tour::Tour() {
-	tour_ = nullptr;
+	
 }
 
-Tour::Tour(Piece* tour) {
-	tour_ = tour;
+Tour::Tour(string id, string couleur, int positionX, int positionY): Piece(id, couleur, positionX, positionY) {
+	
 }
 
-Piece Tour::obtenirPiece() const {
-	return *tour_;
+Tour::~Tour() {
+
 }
 
-void Tour::modifierPiece(Piece* tour) {
-	tour_ = tour;
-}
 
-bool Tour::estMouvementValide(int toX, int toY) {
-	Piece piece;
-	if (!piece.estMouvementValide(toX, toY))
+bool Tour::estMouvementValide2(int toX, int toY) {
+	
+	if (!estMouvementValide(toX, toY))
 		return false;
-	else if (toX == piece.obtenirPositionX() && toY != piece.obtenirPositionY())
+	else if (toX == obtenirPositionX() && toY != obtenirPositionY())
 		return true;
-	else if (toY == piece.obtenirPositionY() && toX != piece.obtenirPositionX())
+	else if (toY == obtenirPositionY() && toX != obtenirPositionX())
 		return true;
 
 	std::cout << "Deplacement non autorise" << endl;
@@ -39,12 +36,12 @@ bool Tour::estMouvementValide(int toX, int toY) {
 }
 
 void Tour::deplacer(int toX, int toY) {
-	Piece piece;
-	if (estMouvementValide(toX, toY)) {
-		piece.modifierPositionX(toX);
-		piece.modifierPositionY(toY);
-		std::cout << "Deplacement de la tour de la position " << piece.obtenirPositionX()
-			<< ", " << piece.obtenirPositionY() << " a la position " << toX << ", " <<
+
+	if (estMouvementValide2(toX, toY)) {
+		modifierPositionX(toX);
+		modifierPositionY(toY);
+		std::cout << "Deplacement de la tour de la position " << obtenirPositionX()
+			<< ", " << obtenirPositionY() << " a la position " << toX << ", " <<
 			toY << endl;
 	}
 	else

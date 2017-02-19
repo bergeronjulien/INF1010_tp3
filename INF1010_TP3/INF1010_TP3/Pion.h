@@ -16,21 +16,18 @@
 
 using namespace std;
 
-class Pion {
+class Pion: public Piece {
 
 
 public:
 	// constructeurs
 	Pion();
-	Pion(Piece* pion);
+	Pion(string newId, string newCouleur, int newPositionX, int newPositionY) : Piece(newId, newCouleur, newPositionX, newPositionY) { };
 
 	// destructeur
 	~Pion();
 
-	Piece obtenirPiece() const;
-	void modifierPiece(Piece* pion);
-
-	bool estMouvementValide(int toX, int toY, bool estBlanc);
+	bool estMouvementValide2(int toX, int toY, bool estBlanc);
 
 	void deplacer(int toX, int toY, bool estBlanc);
 

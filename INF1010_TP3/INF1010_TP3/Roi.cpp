@@ -10,28 +10,25 @@
 #include <iostream>
 
 Roi::Roi() {
-	roi_ = nullptr;
+
 }
 
-Roi::Roi(Piece* tour) {
-	roi_ = tour;
+Roi::Roi(string newId, string newCouleur, int newPositionX, int newPositionY) : Piece(newId, newCouleur, newPositionX, newPositionY) {
+
 }
 
-Piece Roi::obtenirPiece() const {
-	return *roi_;
+Roi::~Roi() {
+
 }
 
-void Roi::modifierPiece(Piece* roi) {
-	roi_ = roi;
-}
 
-bool Roi::estMouvementValide(int toX, int toY) {
-	Piece piece;
-	if (!piece.estMouvementValide(toX, toY))
+bool Roi::estMouvementValide2(int toX, int toY) {
+
+	if (!estMouvementValide(toX, toY))
 		return false;
-	else if (toX == piece.obtenirPositionX() && (toY - 1 == piece.obtenirPositionY() || toY + 1 == piece.obtenirPositionY()))
+	else if (toX == obtenirPositionX() && (toY - 1 == obtenirPositionY() || toY + 1 == obtenirPositionY()))
 		return true;
-	else if (toX == piece.obtenirPositionY() && (toX - 1 == piece.obtenirPositionX() || toX + 1 == piece.obtenirPositionX()))
+	else if (toX == obtenirPositionY() && (toX - 1 == obtenirPositionX() || toX + 1 == obtenirPositionX()))
 		return true;
 
 	std::cout << "Deplacement non autorise" << endl;
@@ -39,12 +36,12 @@ bool Roi::estMouvementValide(int toX, int toY) {
 }
 
 void Roi::deplacer(int toX, int toY) {
-	Piece piece;
-	if (estMouvementValide(toX, toY)) {
-		piece.modifierPositionX(toX);
-		piece.modifierPositionY(toY);
-		std::cout << "Deplacement du roi de la position " << piece.obtenirPositionX()
-			<< ", " << piece.obtenirPositionY() << " a la position " << toX << ", " <<
+
+	if (estMouvementValide2(toX, toY)) {
+		modifierPositionX(toX);
+		modifierPositionY(toY);
+		std::cout << "Deplacement du roi de la position " << obtenirPositionX()
+			<< ", " << obtenirPositionY() << " a la position " << toX << ", " <<
 			toY << endl;
 	}
 	else

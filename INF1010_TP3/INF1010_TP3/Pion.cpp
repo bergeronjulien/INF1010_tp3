@@ -13,43 +13,38 @@ Pion::Pion() {
 	pion_ = nullptr;
 }
 
-Pion::Pion(Piece* pion) {
-	pion_ = pion;
+Pion::Pion(string newId, string newCouleur, int newPositionX, int newPositionY) : Piece(newId, newCouleur, newPositionX, newPositionY) {
 	estPositionInitiale_ = true;
 }
 
-Piece Pion::obtenirPiece() const {
-	return *pion_;
+Pion::~Pion() {
+
 }
 
-void Pion::modifierPiece(Piece* pion) {
-	pion_ = pion;
-}
+bool Pion::estMouvementValide2(int toX, int toY, bool estBlanc) {
 
-bool Pion::estMouvementValide(int toX, int toY, bool estBlanc) {
-	Piece piece;
-	if (!piece.estMouvementValide(toX, toY) || toX != piece.obtenirPositionX())
+	if (!estMouvementValide(toX, toY) || toX != obtenirPositionX())
 		return false;
 	else if (estBlanc) {
-		if (estPositionInitiale_ && (toY - piece.obtenirPositionY()) <= 2)
+		if (estPositionInitiale_ && (toY - obtenirPositionY()) <= 2)
 			return true;
-		if (!estPositionInitiale_ && (toY - piece.obtenirPositionY()) <= 1)
+		if (!estPositionInitiale_ && (toY - obtenirPositionY()) <= 1)
 			return true;
 	}
-	else if (estPositionInitiale_ && (piece.obtenirPositionY() - toY) <= 2)
+	else if (estPositionInitiale_ && (obtenirPositionY() - toY) <= 2)
 		return true;
-	else if (!estPositionInitiale_ && (piece.obtenirPositionY() - toY) <= 1)
+	else if (!estPositionInitiale_ && (obtenirPositionY() - toY) <= 1)
 		return true;
 	std::cout << "Deplacement non autorise" << endl;
 	return false;
 }
 
 void Pion::deplacer(int toX, int toY, bool estBlanc) {
-	Piece piece;
-	if (estMouvementValide(toX, toY, estBlanc)) {
-		piece.modifierPositionY(toY);
-		std::cout << "Deplacement du pion de la position (" << piece.obtenirPositionX()
-			<< ", " << piece.obtenirPositionY() << ") a la position (" << toX << ", " <<
+
+	if (estMouvementValide2(toX, toY, estBlanc)) {
+		modifierPositionY(toY);
+		std::cout << "Deplacement du pion de la position (" << obtenirPositionX()
+			<< ", " << obtenirPositionY() << ") a la position (" << toX << ", " <<
 			toY << ")" << endl;
 	}
 	else

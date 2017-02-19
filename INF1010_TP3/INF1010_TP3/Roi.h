@@ -16,27 +16,20 @@
 
 using namespace std;
 
-class Roi {
+class Roi : public Piece {
 
 
 public:
 	// constructeurs
 	Roi();
-	Roi(Piece* roi);
+	Roi(string newId, string newCouleur, int newPositionX, int newPositionY);
 
 	// destructeur
 	~Roi();
 
-	Piece obtenirPiece() const;
-	void modifierPiece(Piece* roi);
-
-	bool estMouvementValide(int toX, int toY);
-
+	bool estMouvementValide2(int toX, int toY);
 	void deplacer(int toX, int toY);
 
-private:
-
-	Piece* roi_;
 
 };
 #endif

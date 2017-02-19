@@ -17,27 +17,24 @@
 
 using namespace std;
 
-class Tour {
+class Tour: public Piece { // NOTE: Tu dois définir que Tour est une extension de pièce. 
 
 
 public:
 	// constructeurs
 	Tour();
-	Tour(Piece* tour);
+	Tour(string id, string couleur, int positionX, int positionY);
 
 	// destructeur
 	~Tour();
 
-	Piece obtenirPiece() const;
-	void modifierPiece(Piece* tour);
-
-	bool estMouvementValide(int toX, int toY);
+	bool estMouvementValide2(int toX, int toY);
 
 	void deplacer(int toX, int toY);
 
 private:
 
-	Piece* tour_;
+	
 
 };
 #endif
