@@ -5,11 +5,19 @@
 * Auteur:
 **************************************************/
 
+#include "Pion.h"
+#include <string>
+#include <iostream>
 
 int main()
 {
 	//1-  Creez un objet de type Roi à l'aide du constructeur par défaut.
-	
+	Piece* piece_1 = new Piece("1", "blanc", 1, 2);
+	Pion* pion1 = new Pion(piece_1);
+	piece_1->estMouvementValide(1, 7);
+	if (pion1->estMouvementValide(1, 3, true))
+		std::cout << "true";
+	pion1->deplacer(1, 3, false);
 
 	//2- Donnez l'id D1 au roi défini dans l'étape 1
 	
