@@ -10,7 +10,7 @@
 #include <iostream>
 
 Pion::Pion() {
-	pion_ = nullptr;
+	
 }
 
 Pion::Pion(string newId, string newCouleur, int newPositionX, int newPositionY) : Piece(newId, newCouleur, newPositionX, newPositionY) {
@@ -21,11 +21,11 @@ Pion::~Pion() {
 
 }
 
-bool Pion::estMouvementValide2(int toX, int toY, bool estBlanc) {
+bool Pion::estMouvementValide2(int toX, int toY) const  {
 
 	if (!estMouvementValide(toX, toY) || toX != obtenirPositionX())
 		return false;
-	else if (estBlanc) {
+	else if (obtenirCouleur() == "Blanc") {
 		if (estPositionInitiale_ && (toY - obtenirPositionY()) <= 2)
 			return true;
 		if (!estPositionInitiale_ && (toY - obtenirPositionY()) <= 1)
@@ -35,16 +35,21 @@ bool Pion::estMouvementValide2(int toX, int toY, bool estBlanc) {
 		return true;
 	else if (!estPositionInitiale_ && (obtenirPositionY() - toY) <= 1)
 		return true;
-	std::cout << "Deplacement non autorise" << endl;
+
 	return false;
 }
 
-void Pion::deplacer(int toX, int toY, bool estBlanc) {
+void Pion::deplacer(int toX, int toY) {
 
-	if (estMouvementValide2(toX, toY, estBlanc)) {
-		modifierPositionY(toY);
-		std::cout << "Deplacement du pion de la position (" << obtenirPositionX()
-			<< ", " << obtenirPositionY() << ") a la position (" << toX << ", " <<
+	if (estMouvementValide2(toX, toY)) {
+		estPositionInitiale_ = false;
+		
+		std::cout << "Deplacement du Pion " << obtenirId() << " de la position (" 
+			<< obtenirPositionX() << ", " << obtenirPositionY() << ")";
+		
+		modifierPositionY(toY); // NOTE: Tu remplaçais les valeurs trop tôt
+		modifierPositionX(toX); // NOTE: Tu avais oublié ton x :'(
+		std::cout << "a la position (" << toX << ", " <<
 			toY << ")" << endl;
 	}
 	else

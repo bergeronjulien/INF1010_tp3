@@ -60,11 +60,11 @@ void Piece::modifierPositionY(int positionY) {
 	positionY_ = positionY;
 }
 
-bool Piece::estMouvementValide(int toX, int toY) {
+bool Piece::estMouvementValide(int toX, int toY) const {
 	if (((positionX_ != toX) || (positionY_ != toY)) && ((toX >= 0) && (toX <= 7)) && ((toY >= 0) && (toY <= 7)))
 		return true;
 	else
-		std::cout << "Deplacement de la piece non autorise";
+		std::cout << "Deplacement de la piece non autorise" << endl;
 
 	return false;
 }

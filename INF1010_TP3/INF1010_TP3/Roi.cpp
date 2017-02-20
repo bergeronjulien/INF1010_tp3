@@ -22,7 +22,7 @@ Roi::~Roi() {
 }
 
 
-bool Roi::estMouvementValide2(int toX, int toY) {
+bool Roi::estMouvementValide2(int toX, int toY) const {
 
 	if (!estMouvementValide(toX, toY))
 		return false;
@@ -38,11 +38,13 @@ bool Roi::estMouvementValide2(int toX, int toY) {
 void Roi::deplacer(int toX, int toY) {
 
 	if (estMouvementValide2(toX, toY)) {
-		modifierPositionX(toX);
-		modifierPositionY(toY);
-		std::cout << "Deplacement du roi de la position " << obtenirPositionX()
-			<< ", " << obtenirPositionY() << " a la position " << toX << ", " <<
-			toY << endl;
+		std::cout << "Deplacement du Roi " << obtenirId() << " de la position (" << obtenirPositionX()
+			<< ", " << obtenirPositionY() << ")";
+
+		modifierPositionY(toY); // NOTE: Tu remplaçais les valeurs trop tôt
+		modifierPositionX(toX); // NOTE: Tu avais oublié ton x :'(
+		std::cout << "a la position (" << toX << ", " <<
+			toY << ")" << endl;
 	}
 	else
 		std::cout << "Deplacement non autorise" << endl;

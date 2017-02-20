@@ -22,18 +22,17 @@ class Pion: public Piece {
 public:
 	// constructeurs
 	Pion();
-	Pion(string newId, string newCouleur, int newPositionX, int newPositionY) : Piece(newId, newCouleur, newPositionX, newPositionY) { };
+	Pion(string newId, string newCouleur, int newPositionX, int newPositionY);
 
 	// destructeur
 	~Pion();
 
-	bool estMouvementValide2(int toX, int toY, bool estBlanc);
+	bool estMouvementValide2(int toX, int toY) const;
 
-	void deplacer(int toX, int toY, bool estBlanc);
+	void deplacer(int toX, int toY);
 
 private:
 	bool estPositionInitiale_;
-	Piece* pion_;
 
 };
 #endif

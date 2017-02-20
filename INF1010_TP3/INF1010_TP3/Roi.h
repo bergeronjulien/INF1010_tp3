@@ -27,7 +27,7 @@ public:
 	// destructeur
 	~Roi();
 
-	bool estMouvementValide2(int toX, int toY);
+	bool estMouvementValide2(int toX, int toY) const;
 	void deplacer(int toX, int toY);
 
 

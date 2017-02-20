@@ -13,7 +13,7 @@ Tour::Tour() {
 	
 }
 
-Tour::Tour(string id, string couleur, int positionX, int positionY): Piece(id, couleur, positionX, positionY) {
+Tour::Tour(const string id, const string couleur, const int positionX, const int positionY): Piece(id, couleur, positionX, positionY) {
 	
 }
 
@@ -22,7 +22,7 @@ Tour::~Tour() {
 }
 
 
-bool Tour::estMouvementValide2(int toX, int toY) {
+bool Tour::estMouvementValide2(const int toX, const int toY) {
 	
 	if (!estMouvementValide(toX, toY))
 		return false;
@@ -31,19 +31,20 @@ bool Tour::estMouvementValide2(int toX, int toY) {
 	else if (toY == obtenirPositionY() && toX != obtenirPositionX())
 		return true;
 
-	std::cout << "Deplacement non autorise" << endl;
 	return false;
 }
 
-void Tour::deplacer(int toX, int toY) {
+void Tour::deplacer(const int toX, const int toY) {
 
 	if (estMouvementValide2(toX, toY)) {
-		modifierPositionX(toX);
-		modifierPositionY(toY);
-		std::cout << "Deplacement de la tour de la position " << obtenirPositionX()
-			<< ", " << obtenirPositionY() << " a la position " << toX << ", " <<
-			toY << endl;
+		std::cout << "Deplacement de la Tour " << obtenirId() << " de la position (" << obtenirPositionX()
+			<< ", " << obtenirPositionY() << ")";
+
+		modifierPositionY(toY); // NOTE: Tu remplaçais les valeurs trop tôt
+		modifierPositionX(toX); // NOTE: Tu avais oublié ton x :'(
+		std::cout << "a la position (" << toX << ", " <<
+			toY << ")" << endl;
 	}
 	else
-		std::cout << "Deplacement non autorise" << endl;
+		std::cout << "Deplacement de la tour non autorise" << endl;
 }

@@ -29,7 +29,7 @@ public:
 	~Echiquier();
 
 	// Methodes publiques
-	void ajouterRoi(const Roi &unRoi, int position);
+	void ajouterRoi(const Roi* unRoi, int position);
 	void ajouterTour(const Tour& uneTour);
 	void ajouterPion(const Pion& unPion);
 

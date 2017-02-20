@@ -23,14 +23,14 @@ class Tour: public Piece { // NOTE: Tu dois définir que Tour est une extension d
 public:
 	// constructeurs
 	Tour();
-	Tour(string id, string couleur, int positionX, int positionY);
+	Tour(const string id, const string couleur, const int positionX, const int positionY);
 
 	// destructeur
 	~Tour();
 
-	bool estMouvementValide2(int toX, int toY);
+	bool estMouvementValide2(const int toX, const int toY);
 
-	void deplacer(int toX, int toY);
+	void deplacer(const int toX, const int toY);
 
 private:
 

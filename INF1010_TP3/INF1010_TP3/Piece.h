@@ -39,7 +39,7 @@ public :
 	int obtenirPositionY() const;
 	void modifierPositionY(int y);
 
-	bool estMouvementValide(int toX, int toY); 
+	bool estMouvementValide(int toX, int toY) const;
 
 
 private:

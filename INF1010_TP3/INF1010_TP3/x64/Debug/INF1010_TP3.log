@@ -1,18 +1,4 @@
-﻿  Tour.cpp
-  Roi.cpp
-c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\roi.cpp(16): error C2084: function 'Roi::Roi(std::string,std::string,int,int)' already has a body
-  c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\roi.h(25): note: see previous definition of '{ctor}'
-  Pion.cpp
-c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\pion.cpp(16): error C2084: function 'Pion::Pion(std::string,std::string,int,int)' already has a body
-  c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\pion.h(25): note: see previous definition of '{ctor}'
-  Generating Code...
-  Compiling...
-  Echiquier.cpp
-  Generating Code...
-  Compiling...
-  Main.cpp
-c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\main.cpp(16): error C2664: 'Pion::Pion(const Pion &)': cannot convert argument 1 from 'Piece *' to 'const Pion &'
-  c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\main.cpp(16): note: Reason: cannot convert from 'Piece *' to 'const Pion'
-  c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\main.cpp(16): note: No constructor could take the source type, or constructor overload resolution was ambiguous
-c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\main.cpp(18): error C2660: 'Piece::estMouvementValide': function does not take 3 arguments
-  Generating Code...
+﻿  Main.cpp
+c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\main.cpp(37): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\main.cpp(45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  INF1010_TP3.vcxproj -> C:\Users\loicb\Documents\GitHub\INF1010_tp3\INF1010_TP3\x64\Debug\INF1010_TP3.exe
