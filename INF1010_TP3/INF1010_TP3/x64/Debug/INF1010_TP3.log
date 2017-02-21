@@ -1,4 +1,8 @@
-﻿  Main.cpp
-c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\main.cpp(37): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\loicb\documents\github\inf1010_tp3\inf1010_tp3\inf1010_tp3\main.cpp(45): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  INF1010_TP3.vcxproj -> C:\Users\loicb\Documents\GitHub\INF1010_tp3\INF1010_TP3\x64\Debug\INF1010_TP3.exe
+﻿  Tour.cpp
+  Roi.cpp
+  Pion.cpp
+  Piece.cpp
+  Echiquier.cpp
+  Generating Code...
+  INF1010_TP3.vcxproj -> C:\Users\Julien\Documents\GitHub\INF1010_tp3\INF1010_TP3\x64\Debug\INF1010_TP3.exe
+  INF1010_TP3.vcxproj -> C:\Users\Julien\Documents\GitHub\INF1010_tp3\INF1010_TP3\x64\Debug\INF1010_TP3.pdb (Full PDB)

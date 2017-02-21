@@ -1,9 +1,8 @@
-
-/********************************************
-* Titre: Travail pratique #3 - Piece.h
-* Date:
-* Auteur:
-*******************************************/
+/**************************************************
+* Titre: Travail pratique #3 - Tour.h
+* Date: 21 février 2017
+* Auteur: Julien Bergeron (1829496) et Loic Bellemare-Alford (1846135)
+**************************************************/
 
 #pragma once
 
@@ -17,7 +16,7 @@
 
 using namespace std;
 
-class Tour: public Piece { // NOTE: Tu dois définir que Tour est une extension de pièce. 
+class Tour: public Piece { 
 
 
 public:

@@ -1,27 +1,37 @@
-/********************************************
-* Titre: Travail pratique #2 - Medecin.cpp
-* Date: 8 janvier 2017
+/**************************************************
+* Titre: Travail pratique #3 - Pion.cpp
+* Date: 21 février 2017
 * Auteur: Julien Bergeron (1829496) et Loic Bellemare-Alford (1846135)
-*******************************************/
+**************************************************/
 
 #include "Piece.h"
 #include "Pion.h"
 #include <string>
 #include <iostream>
 
+///Constructeur par défaut
 Pion::Pion() {
 	
 }
 
+/// Initialise une nouvelle instance de la classe Pion
+/// param [in] id			identifiant
+/// param [in] couleur		La couleur
+/// param [in] positionX	La position des abcisses
+///	param [in] positionY	La position des ordonnées
 Pion::Pion(string newId, string newCouleur, int newPositionX, int newPositionY) : Piece(newId, newCouleur, newPositionX, newPositionY) {
 	estPositionInitiale_ = true;
 }
 
+/// Destructeur
 Pion::~Pion() {
 
 }
 
-bool Pion::estMouvementValide2(int toX, int toY) const  {
+/// Vérifier si le mouvement est valide
+/// param [in] toX		Position de destination sur l'axe des abcisses
+/// param [in] toY		Position de destination sur l'axe des ordonnées
+bool Pion::estMouvementValide2(int toX, int toY) const {
 
 	if (!estMouvementValide(toX, toY) || toX != obtenirPositionX())
 		return false;
@@ -39,6 +49,10 @@ bool Pion::estMouvementValide2(int toX, int toY) const  {
 	return false;
 }
 
+
+/// Déplacer le pion à la position X spécifiée
+/// param [in] toX		Position de destination sur l'axe des abcisses
+/// param [in] toY		Position de destination sur l'axe des ordonnées
 void Pion::deplacer(int toX, int toY) {
 
 	if (estMouvementValide2(toX, toY)) {
@@ -47,8 +61,8 @@ void Pion::deplacer(int toX, int toY) {
 		std::cout << "Deplacement du Pion " << obtenirId() << " de la position (" 
 			<< obtenirPositionX() << ", " << obtenirPositionY() << ")";
 		
-		modifierPositionY(toY); // NOTE: Tu remplaçais les valeurs trop tôt
-		modifierPositionX(toX); // NOTE: Tu avais oublié ton x :'(
+		modifierPositionY(toY); 
+		modifierPositionX(toX); 
 		std::cout << "a la position (" << toX << ", " <<
 			toY << ")" << endl;
 	}

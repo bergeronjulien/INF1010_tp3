@@ -1,9 +1,8 @@
-
-/********************************************
+/**************************************************
 * Titre: Travail pratique #3 - Echiquier.h
-* Date:
-* Auteur:
-*******************************************/
+* Date: 21 février 2017
+* Auteur: Julien Bergeron (1829496) et Loic Bellemare-Alford (1846135)
+**************************************************/
 
 #pragma once
 #ifndef ECHIQUIER_H
@@ -18,8 +17,6 @@
 
 
 class Echiquier{
-
-
 
 public:
 	// Constructeur par defaut
@@ -38,6 +35,7 @@ public:
 
 	void deplacerPiece(string id, int toX, int toY);
 
+	//Méthodes privées
 private :
 	Pion*   tableauPions_;
 	Tour*   tableauTours_;

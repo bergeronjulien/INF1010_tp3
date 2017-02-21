@@ -1,8 +1,8 @@
 
 /**************************************************
 * Titre: Travail pratique #3 - Main.cpp
-* Date:
-* Auteur:
+* Date: 21 février 2017
+* Auteur: Julien Bergeron (1829496) et Loic Bellemare-Alford (1846135)
 **************************************************/
 
 #include "Pion.h"
@@ -11,6 +11,7 @@
 #include "Echiquier.h"
 #include <string>
 #include <iostream>
+
 
 int main()
 {

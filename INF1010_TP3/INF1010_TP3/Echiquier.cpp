@@ -1,8 +1,8 @@
-/********************************************
-* Titre: Travail pratique #2 - Medecin.cpp
-* Date: 8 janvier 2017
+/**************************************************
+* Titre: Travail pratique #3 - Echiquier.cpp
+* Date: 21 février 2017
 * Auteur: Julien Bergeron (1829496) et Loic Bellemare-Alford (1846135)
-*******************************************/
+**************************************************/
 
 #include "Echiquier.h"
 #include "Tour.h"
@@ -12,7 +12,7 @@
 #include <string>
 #include <iostream>
 
-//Constructeur par paramètre
+///Constructeur par paramètre
 Echiquier::Echiquier() {
 	capaciteTableauPion_ = 16;
 	capaciteTableauTour_ = 16;
@@ -26,25 +26,37 @@ Echiquier::Echiquier() {
 	
 }
 
+/// Destructeur
 Echiquier::~Echiquier() {
 	delete tableauPions_;
 	delete tableauTours_;
 }
 
-void Echiquier::ajouterRoi(const Roi* unRoi, int position) { // NOTE: Il faut utiliser * pas & puisqu'on passe un pointeur.
+///	Ajouter un roi sur l'échiquier
+/// param [in] unRoi		Roi à ajouter
+/// param [in] position		Position initiale du roi
+void Echiquier::ajouterRoi(const Roi* unRoi, int position) { 
 	rois_[position] = *unRoi;
 }
 
+/// Ajouter une tour.
+/// param [in] uneTour		Tour à ajouter
 void Echiquier::ajouterTour(const Tour& uneTour) {
 	tableauTours_[compteurTour_] = uneTour;
 	compteurTour_++;
 }
 
+///Ajouter pion
+/// param [in] unPion		Pion à ajouter
 void Echiquier::ajouterPion(const Pion& unPion) {
 	tableauPions_[compteurPion_] = unPion;
 	compteurPion_++;
 }
 
+/// Deplacer la piece.
+/// param [in] id		L'identifiant
+/// param [in] toX/		À X
+/// param [in] toY		À Y
 void Echiquier::deplacerPiece(string id, int toX, int toY) {
 	for (size_t i = 0; i < compteurPion_; i++)
 	{
@@ -65,6 +77,8 @@ void Echiquier::deplacerPiece(string id, int toX, int toY) {
 
 }
 
+/// Enlever la tour.
+/// param [in] id		id de la tour à enlever
 void Echiquier::enleverTour(const string id) {
 	bool trouve = false;
 
@@ -80,6 +94,8 @@ void Echiquier::enleverTour(const string id) {
 	}
 }
 
+/// Enlever le pion.
+/// param [in] id		L'identifiant du pion à enlever
 void Echiquier::enleverPion(const string id) {
 	bool trouve = false;
 
